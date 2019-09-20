@@ -17,7 +17,11 @@ class Calculator:
         new_exp = self.replace_symbol()
         try:
             value = eval(new_exp)
-        except SyntaxError or NameError:
+        except NameError:
+            self.entry.delete(0, tk.END)
+            # self.entry.insert(0, 'Invalid Input!')
+            messagebox.showerror("Error", "Invalid Input!")
+        except SyntaxError:
             self.entry.delete(0, tk.END)
             # self.entry.insert(0, 'Invalid Input!')
             messagebox.showerror("Error", "Invalid Input!")
@@ -29,7 +33,11 @@ class Calculator:
         new_exp = self.replace_symbol()
         try:
             value = eval(new_exp)
-        except SyntaxError or NameError:
+        except NameError:
+            self.entry.delete(0, tk.END)
+            # self.entry.insert(0, 'Invalid Input!')
+            messagebox.showerror("Error", "Invalid Input!")
+        except SyntaxError:
             self.entry.delete(0, tk.END)
             # self.entry.insert(0, 'Invalid Input!')
             messagebox.showerror("Error", "Invalid Input!")
@@ -44,7 +52,11 @@ class Calculator:
         except ValueError:
             self.entry.delete(0, tk.END)
             self.entry.insert(0, str(0))
-        except SyntaxError or NameError:
+        except NameError:
+            self.entry.delete(0, tk.END)
+            # self.entry.insert(0, 'Invalid Input!')
+            messagebox.showerror("Error", "Invalid Input!")
+        except SyntaxError:
             self.entry.delete(0, tk.END)
             # self.entry.insert(0, 'Invalid Input!')
             messagebox.showerror("Error", "Invalid Input!")
@@ -59,7 +71,11 @@ class Calculator:
         except ValueError:
             self.entry.delete(0, tk.END)
             self.entry.insert(0, str(0))
-        except SyntaxError or NameError:
+        except NameError:
+            self.entry.delete(0, tk.END)
+            # self.entry.insert(0, 'Invalid Input!')
+            messagebox.showerror("Error", "Invalid Input!")
+        except SyntaxError:
             self.entry.delete(0, tk.END)
             self.entry.insert(0, 'Invalid Input!')
         else:
@@ -102,9 +118,9 @@ class Calculator:
         self.seven = tk.Button(self.root, text="7", width=8, height=2, command=lambda: self.action("7"))
         self.eight = tk.Button(self.root, text="8", width=8, height=2, command=lambda: self.action("8"))
         self.nine = tk.Button(self.root, text="9", width=8, height=2, command=lambda: self.action("9"))
-        self.decimal = tk.Button(self.root, text=".", width=8, height=2, command=lambda: self.action("."))
         
         # Creating Operational buttons(.,-,*,/,+,%)
+        self.decimal = tk.Button(self.root, text=".", width=8, height=2, command=lambda: self.action("."))
         self.subtract = tk.Button(self.root, text="-", width=8, height=2, command=lambda: self.action("-"))
         self.multiply = tk.Button(self.root, text="X", width=8, height=2, command=lambda: self.action("x"))
         self.divide = tk.Button(self.root, text="÷", width=8, height=2, command=lambda: self.action("÷"))
